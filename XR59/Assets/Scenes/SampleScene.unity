@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201188944}
   - component: {fileID: 201188943}
-  - component: {fileID: 201188942}
+  - component: {fileID: 201188945}
   m_Layer: 0
   m_Name: STT_Manager
   m_TagString: Untagged
@@ -141,20 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &201188942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201188941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e10516504bf441d96096ae57eabe2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HF_INF_API_KEY: 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
-  groqScript: {fileID: 1276356417}
 --- !u!82 &201188943
 AudioSource:
   m_ObjectHideFlags: 0
@@ -266,6 +252,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201188945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201188941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e10516504bf441d96096ae57eabe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HF_INF_API_KEY: 
+  groqScript: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1276356418}
-  - component: {fileID: 1276356417}
+  - component: {fileID: 1276356419}
   m_Layer: 0
   m_Name: LLM_Manager
   m_TagString: Untagged
@@ -587,27 +587,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1276356417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276356416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d61fac67d484c44973c79d92868da5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  apiKey: 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
-  selectedModel: 0
-  shortResponse: 1
-  whoAmI: nobody
-  context: You are a friendly cashier at a supermarket. Your job is to assist customers
-    with their purchases, provide information about products, and handle transactions.
-    you can have brief small talks, if you see that you're getting asked questions
-    that a normal cashier person wouldn't know then gently change the subject.
-  closedContext: 1
 --- !u!4 &1276356418
 Transform:
   m_ObjectHideFlags: 0
@@ -623,6 +602,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276356419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276356416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d61fac67d484c44973c79d92868da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiKey: 
+  selectedModel: 0
+  shortResponse: 0
+  whoAmI: nobody
+  context: 
+  closedContext: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
