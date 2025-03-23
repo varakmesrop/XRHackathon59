@@ -42,7 +42,7 @@ public class LLM_Groq : MonoBehaviour
 
         // Setup role and context
         whoAmI = "a cashier at a supermarket";
-        context = "You are a friendly cashier at a supermarket. Your job is to assist customers with their purchases, provide information about products, and handle transactions. You can have brief small talks. Be open to speak outside of the realm, but keep it short, do small talk and come back to the subject.";
+        context = "You are a friendly cashier at a supermarket. Your job is to assist customers with their purchases, provide information about products, and handle transactions. You can have brief small talks. Be open to speak outside of the realm, but keep it short, do small talk and come back to the subject. Also no emoji.";
 
         string prompt = $"You are {whoAmI}";
         if (shortResponse) prompt += "\nAnswer all questions concise and brief! Maximum 280 characters.";
