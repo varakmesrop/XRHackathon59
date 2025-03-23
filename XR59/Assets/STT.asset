@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
   m_Name: STT
   m_EditorClassIdentifier: 
-  _clientAccessToken: HOKEABS7HPIQVSRSVWRPTTV75TQJ5QBP
+  _clientAccessToken: UCRSGVKHZ4YZPI5IMVFSU4HNXPSDUOPL
   editorVersionTag: 
   buildVersionTag: 
   _appInfo:

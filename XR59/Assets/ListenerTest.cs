@@ -1,14 +1,27 @@
 ﻿using Meta.WitAi.Dictation.Events;
+using Meta.WitAi.Json;
 using Oculus.Voice.Dictation;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class ListenerTest : MonoBehaviour
 {
     [Header("Wit Dictation Reference")]
     public AppDictationExperience dictationExperience;
+
+    [System.Serializable]
+    public class TranscriptionResult
+    {
+        public string text;
+    }
+
+    [Header("Events")]
+    public UnityEvent<string> OnMessageReceived;
+
+    private bool dicStarted = false;
+    private string lastTranscript = "";
 
     void Start()
     {
@@ -19,38 +32,49 @@ public class ListenerTest : MonoBehaviour
         }
 
         dictationExperience.DictationEvents.OnStartListening.AddListener(OnStartDictation);
-
-
+        dictationExperience.DictationEvents.OnStoppedListening.AddListener(OnStopDictation);
+        dictationExperience.DictationEvents.OnRawResponse.AddListener(OnFullTranscription);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && !dicStarted)
         {
-            Debug.Log("q");
-            dictationExperience.Activate();
+            StartDictation();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && !dicStarted)
+        {
+            StopDictation();
         }
     }
 
     private void OnStartDictation()
     {
+        dicStarted = true;
+        lastTranscript = "";
         Debug.Log("🎙️ Dictation started...");
     }
 
-    private void OnFullTranscription(string text)
+    private void OnFullTranscription(string json)
     {
-        Debug.Log("📜 Transcription: " + text);
-
-        // Send to chatbot or store for use
-        // e.g., ChatManager.SendToAI(text);
+        TranscriptionResult result = JsonUtility.FromJson<TranscriptionResult>(json);
+        lastTranscript = result.text;
+        Debug.Log("📝 Extracted text: " + lastTranscript);
     }
 
     private void OnStopDictation()
     {
+        dicStarted = false;
         Debug.Log("🛑 Dictation stopped.");
+
+        if (!string.IsNullOrEmpty(lastTranscript))
+        {
+            Debug.Log("📣 Invoking OnMessageReceived with: " + lastTranscript);
+            OnMessageReceived?.Invoke(lastTranscript);
+        }
     }
 
-    // Optional button triggers
     public void StartDictation() => dictationExperience.Activate();
     public void StopDictation() => dictationExperience.Deactivate();
 }
