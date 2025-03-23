@@ -38,6 +38,11 @@ public class SpeakerTest : MonoBehaviour
             return;
         }
 
+        if (text.Length > 275)
+        {
+            text = "I'm sorry, I am not sure I understand you";
+        }
+
         isSpeaking = true;
         UpdateAnimator();
 

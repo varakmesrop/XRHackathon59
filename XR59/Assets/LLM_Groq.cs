@@ -42,7 +42,7 @@ public class LLM_Groq : MonoBehaviour
 
         // Setup role and context
         whoAmI = "a cashier at a supermarket";
-        context = "You are a friendly cashier at a supermarket. Your job is to assist customers with their purchases, provide information about products, and handle transactions. You can have brief small talks. If you're asked something a cashier wouldn't know, gently change the subject.";
+        context = "You are a friendly cashier at a supermarket. Your job is to assist customers with their purchases, provide information about products, and handle transactions. You can have brief small talks. Be open to speak outside of the realm, but keep it short, do small talk and come back to the subject.";
 
         string prompt = $"You are {whoAmI}";
         if (shortResponse) prompt += "\nAnswer all questions concise and brief! Maximum 280 characters.";
@@ -118,17 +118,16 @@ public class LLM_Groq : MonoBehaviour
 
     private string StripThinkingBlock(string message)
     {
-        int thinkStart = message.IndexOf("<think>", StringComparison.OrdinalIgnoreCase);
         int thinkEnd = message.IndexOf("</think>", StringComparison.OrdinalIgnoreCase);
 
-        if (thinkStart >= 0 && thinkEnd > thinkStart)
+        if (thinkEnd >= 0)
         {
-            // Remove the thinking block
+            // Cut everything after </think>
             string stripped = message.Substring(thinkEnd + "</think>".Length);
             return stripped.TrimStart();
         }
 
-        // No thinking block detected
+        // No </think> found, return full message
         return message.Trim();
     }
 

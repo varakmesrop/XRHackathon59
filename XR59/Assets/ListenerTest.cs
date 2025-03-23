@@ -38,14 +38,9 @@ public class ListenerTest : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K) && !dicStarted)
+        if (!dicStarted)
         {
             StartDictation();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L) && !dicStarted)
-        {
-            StopDictation();
         }
     }
 
@@ -68,7 +63,7 @@ public class ListenerTest : MonoBehaviour
         dicStarted = false;
         Debug.Log("🛑 Dictation stopped.");
 
-        if (!string.IsNullOrEmpty(lastTranscript))
+        if (!string.IsNullOrEmpty(lastTranscript) && lastTranscript.Length > 1)
         {
             Debug.Log("📣 Invoking OnMessageReceived with: " + lastTranscript);
             OnMessageReceived?.Invoke(lastTranscript);

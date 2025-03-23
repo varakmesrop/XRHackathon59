@@ -3,7 +3,47 @@ guid: 77bd0b973ae194044bf5728648467e65
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Body_Defaultskin
+    second: {fileID: 2100000, guid: 3814f65acccf3214d8ddfea2c78cca9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Eyebrow008_Eyebrow008
+    second: {fileID: 2100000, guid: a9ebd70f0eeab5b45a206eace6043b8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Eyelashes02_Bodymaterial
+    second: {fileID: 2100000, guid: ae8d3acc07f202042af21ffe46f6ef6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Female_casualsuit01_Female_casualsuit01
+    second: {fileID: 2100000, guid: 0568d768270ee7041a17d8a7455bed2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_High-poly_Eye_brown
+    second: {fileID: 2100000, guid: 1bfeb015594cf704fa57e821e9d3a4a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Ponytail01_Ponytail01
+    second: {fileID: 2100000, guid: cb534c5d723b03d42a49daf83e644079, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Shoes05_Shoes05
+    second: {fileID: 2100000, guid: 56246973fef1b4a4a92b028066be9a41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Human_cashier_Teeth_base_Teethmaterial
+    second: {fileID: 2100000, guid: 482b9bde6eb4a2840b1384c961c26d51, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
