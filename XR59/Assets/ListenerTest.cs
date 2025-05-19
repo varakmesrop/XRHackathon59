@@ -27,7 +27,7 @@ public class ListenerTest : MonoBehaviour
     {
         if (dictationExperience == null)
         {
-            Debug.LogError("🎤 DictationExperience is not assigned!");
+            VisualLoggerWall.Log("🎤 DictationExperience is not assigned!");
             return;
         }
 
@@ -48,24 +48,24 @@ public class ListenerTest : MonoBehaviour
     {
         dicStarted = true;
         lastTranscript = "";
-        Debug.Log("🎙️ Dictation started...");
+        VisualLoggerWall.Log("🎙️ Dictation started...");
     }
 
     private void OnFullTranscription(string json)
     {
         TranscriptionResult result = JsonUtility.FromJson<TranscriptionResult>(json);
         lastTranscript = result.text;
-        Debug.Log("📝 Extracted text: " + lastTranscript);
+        VisualLoggerWall.Log("📝 Extracted text: " + lastTranscript);
     }
 
     private void OnStopDictation()
     {
         dicStarted = false;
-        Debug.Log("🛑 Dictation stopped.");
+        VisualLoggerWall.Log("🛑 Dictation stopped.");
 
         if (!string.IsNullOrEmpty(lastTranscript) && lastTranscript.Length > 1)
         {
-            Debug.Log("📣 Invoking OnMessageReceived with: " + lastTranscript);
+            VisualLoggerWall.Log("📣 Invoking OnMessageReceived with: " + lastTranscript);
             OnMessageReceived?.Invoke(lastTranscript);
         }
     }

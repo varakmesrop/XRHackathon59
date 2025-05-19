@@ -9,6 +9,8 @@ EditorBuildSettings:
     path: Assets/Grocery Store_BVG/Scene/Grocery Store.unity
     guid: 33a927fd0f7f9b442bd70faacb282be5
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 258b8d396b5584149a2a6c684c482b8a,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 871c6099b03e12d42ba9bbf47ed45476,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 468871f0083e2f04cac1ce41db4cf50f,

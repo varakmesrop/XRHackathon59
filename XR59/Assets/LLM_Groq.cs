@@ -38,7 +38,7 @@ public class LLM_Groq : MonoBehaviour
     void Start()
     {
         selectedLLMString = selectedModel.ToString().Replace('_', '-').Replace('X', '.');
-        Debug.Log("🧠 Selected LLM: " + selectedLLMString);
+        VisualLoggerWall.Log("🧠 Selected LLM: " + selectedLLMString);
 
         // Setup role and context
         whoAmI = "a cashier at a supermarket";
@@ -68,7 +68,7 @@ public class LLM_Groq : MonoBehaviour
         }
         else
         {
-            Debug.Log("⏳ Still processing a previous request.");
+            VisualLoggerWall.Log("⏳ Still processing a previous request.");
         }
     }
 
@@ -104,13 +104,13 @@ public class LLM_Groq : MonoBehaviour
             GroqCloudResponse response = JsonUtility.FromJson<GroqCloudResponse>(request.downloadHandler.text);
             string rawReply = response.choices[0].message.content;
             string reply = StripThinkingBlock(rawReply);
-            Debug.Log("💬 LLM Response: " + reply);
+            VisualLoggerWall.Log("💬 LLM Response: " + reply);
 
             OnLLMResponse?.Invoke(reply);
         }
         else
         {
-            Debug.LogError("❌ LLM API Request failed: " + request.error);
+            VisualLoggerWall.Log("❌ LLM API Request failed: " + request.error);
         }
 
         isProcessing = false;

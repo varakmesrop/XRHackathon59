@@ -19,22 +19,22 @@ public class SpeakerTest : MonoBehaviour
     {
         isSpeaking = false;
         UpdateAnimator();
-        Debug.Log("Speak finished...");
+        VisualLoggerWall.Log("Speak finished...");
     }
 
     private void ParrotTalk(string text)
     {
-        Debug.Log("Parrotting...");
+        VisualLoggerWall.Log("Parrotting...");
 
         if (isSpeaking)
         {
-            Debug.Log("Still speaking");
+            VisualLoggerWall.Log("Still speaking");
             return;
         }
 
         if (text.Length < 5)
         {
-            Debug.Log("Message not long enough");
+            VisualLoggerWall.Log("Message not long enough");
             return;
         }
 
